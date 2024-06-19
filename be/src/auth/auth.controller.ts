@@ -25,6 +25,12 @@ export class AuthController {
     return req.user;
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Get('test')
+  getProtectedResource() {
+    return { message: 'This is a protected resource' };
+  }
+
   @Get('google/login')
   @UseGuards(GoogleAuthGuard)
   async googleAuth(@Request() req) {}
@@ -37,5 +43,11 @@ export class AuthController {
     res.redirect(
       `http://localhost:3001?access_token=${tokens.access_token}&refresh_token=${tokens.refresh_token}`,
     );
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('refresh-token')
+  async refreshToken(@Request() req) {
+    return this.authService.refreshToken(req.user);
   }
 }

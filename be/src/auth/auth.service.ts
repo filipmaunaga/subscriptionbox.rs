@@ -35,6 +35,26 @@ export class AuthService {
     const newUser = await this.usersService.create(user);
     return newUser;
   }
+  // Add this method to AuthService
+  async refreshToken(refreshToken: string) {
+    try {
+      const payload = this.jwtService.verify(refreshToken);
+      const user = await this.usersService.findOneById(payload.sub);
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      const newPayload = { username: user.email, sub: user._id };
+      return {
+        access_token: this.jwtService.sign(newPayload),
+        refresh_token: this.jwtService.sign(newPayload, { expiresIn: '7d' }),
+      };
+    } catch (e) {
+      throw new Error('Invalid refresh token');
+    }
+  }
+
   async validateOAuthLogin(profile: any, provider: string): Promise<any> {
     const { email, name, sub: id } = profile._json;
 
