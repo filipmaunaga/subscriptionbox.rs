@@ -1,0 +1,95 @@
+@import "../variables";
+
+.subscription-box-card-container {
+  display: flex;
+  padding: $padding-medium $padding-xm;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.subscription-box-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius;
+  overflow: hidden;
+  width: 200px;
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+.subscription-box-card-text-container {
+  display: flex;
+  flex: 1.5;
+  flex-direction: column;
+  .subscription-box-card-title {
+    color: $primary-text;
+    font-size: $font-size-medium;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  .subscription-box-card-price {
+    margin: 12px 0px 30px 0px;
+    color: $primary-text;
+    font-size: $font-size-large;
+    font-weight: 700;
+    .subscription-box-card-euro-price {
+      color: $secondary-text;
+      font-size: $font-size-small;
+      font-weight: 400;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /* Adjust breakpoint as needed */
+  .subscription-box-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: $padding-medium $padding-xm;
+    gap: 20px;
+    overflow: hidden;
+  }
+
+  .subscription-box-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+  }
+
+  .subscription-box-card-text-container {
+    display: flex;
+    flex: 1.5;
+    flex-direction: column;
+    .subscription-box-card-title {
+      color: $primary-text;
+      font-size: $font-size-medium;
+      line-height: 24px;
+      font-weight: 600;
+    }
+    .subscription-box-card-price {
+      margin: 12px 0px 12px 0px;
+      color: $primary-text;
+      font-size: $font-size-large;
+      font-weight: 700;
+      .subscription-box-card-euro-price {
+        color: $secondary-text;
+        font-size: $font-size-small;
+        font-weight: 400;
+      }
+    }
+  }
+}

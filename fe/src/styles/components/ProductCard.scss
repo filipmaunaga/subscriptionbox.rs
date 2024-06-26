@@ -1,0 +1,23 @@
+@import "../variables";
+
+.product-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $white;
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin-bottom: 10px;
+  }
+  .product-card-title {
+    color: $primary-text;
+    font-size: $font-size-xs;
+    line-height: 24px;
+    font-weight: 600;
+  }
+}
