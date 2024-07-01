@@ -1,0 +1,54 @@
+@import "../variables";
+
+.navbar {
+  position: relative; /* Ensures absolute positioning is relative to the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 10; /* Higher z-index to ensure navbar is above content */
+}
+
+.logo-container {
+  background: $white;
+  border-radius: 50%;
+  padding: $padding-small;
+  .logo-image {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.nav-links {
+  position: absolute;
+  top: 100%; /* Aligns the dropdown right below the navbar */
+  right: 0;
+  border-top: 2px solid $border-color;
+  display: none; /* Hide by default */
+  flex-direction: column;
+  background: $background-color;
+  width: fit-content;
+}
+
+.nav-links.open {
+  display: flex; /* Displays the dropdown when open */
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: $primary-text;
+  padding: $padding-small $padding-medium;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}

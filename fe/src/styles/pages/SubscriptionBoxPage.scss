@@ -1,0 +1,58 @@
+@import "../variables";
+
+.subscriptionbox-page-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+.subscriptionbox-content-container {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-xm;
+  .subscriptionbox-content-title {
+    color: $primary-text;
+    font-size: $font-size-xl;
+    font-weight: 700;
+  }
+  .subscriptionbox-content-price {
+    color: $primary-text;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 12px 0px 24px 0px;
+    .subscriptionbox-content-price-tag {
+      color: $secondary-text;
+      font-size: $font-size-large;
+      font-weight: 400;
+    }
+  }
+  .list-of-products-title {
+    color: $primary-text;
+    font-size: $font-size-large;
+  }
+  .subscriptionbox-products-container {
+    display: flex;
+    margin: 16px 0px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Better scrolling on iOS devices */
+    /* Optional: if you want to ensure there's always a bit of the next item showing */
+    padding-right: 100px; /* Adjust or remove this based on your design */
+    align-items: flex-start; /* Aligns items at the start of the container vertically */
+
+    .product-card-container {
+      flex: 0 0 auto; /* Prevents flex items from shrinking and ensures they take their defined width */
+      margin-right: 16px; /* Spacing between cards */
+    }
+  }
+  .description-text {
+    color: $secondary-text;
+    font-size: $font-size-small;
+    font-weight: 400;
+  }
+}

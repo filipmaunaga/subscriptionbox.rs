@@ -1,8 +1,7 @@
 @import "../variables";
 
 .product-card-container {
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
   width: 120px;
   overflow: hidden;
   border: 1px solid $border-color;
@@ -11,7 +10,6 @@
   img {
     width: 100%;
     height: auto;
-    min-height: 100%;
     margin-bottom: 10px;
   }
   .product-card-title {

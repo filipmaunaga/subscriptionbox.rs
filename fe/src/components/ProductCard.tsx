@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/components/ProductCard.scss";
 import { testCardUrls } from "../misc/testData";
-import ButtonWithIcon from "./ButtonWithIcon";
 
 const ProductCard = () => {
   return (
