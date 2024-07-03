@@ -35,7 +35,7 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faBox} />
           <p>Browse Boxes</p>
         </Link>
-        <Link to="/browse-providers" onClick={toggleNavbar}>
+        <Link to="/providers" onClick={toggleNavbar}>
           <FontAwesomeIcon icon={faShop} />
           <p>Browse Providers</p>
         </Link>

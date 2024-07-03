@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CheckoutPage from "./pages/CheckoutPage";
 import SubscriptionBoxPage from "./pages/SubscriptionBoxPage";
 import Navbar from "./components/Navbar";
+import ProvidersPage from "./pages/ProvidersPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/providers" element={<ProvidersPage />} />
         <Route path="/subscriptionbox/:id" element={<SubscriptionBoxPage />} />
       </Routes>
     </Router>

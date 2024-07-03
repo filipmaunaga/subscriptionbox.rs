@@ -1,0 +1,19 @@
+@import "../variables";
+
+.category-label-container {
+  display: inline-block;
+  min-width: 60px;
+  width: fit-content;
+  margin: 8px 8px 8px 0px;
+  padding: $padding-small $padding-medium;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  background: $white;
+  white-space: nowrap;
+  .category-label-text {
+    color: $secondary-text;
+    font-size: $font-size-xs;
+    font-weight: 400;
+  }
+}

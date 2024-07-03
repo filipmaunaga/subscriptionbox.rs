@@ -36,6 +36,31 @@
     color: $primary-text;
     font-size: $font-size-large;
   }
+  .subscriptionbox-categories-container {
+    display: grid;
+    grid-auto-flow: column; /* Places items in a horizontal flow */
+    grid-auto-columns: minmax(
+      min-content,
+      max-content
+    ); /* Column size adjusts between min and max content size */
+    grid-template-rows: repeat(
+      2,
+      minmax(50px, auto)
+    ); /* Ensures minimum row height */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    column-gap: 8px;
+    margin: 16px 0px;
+    -webkit-overflow-scrolling: touch; /* Better scrolling on iOS devices */
+    padding-right: 100px; /* Optional padding to ensure there's a bit of the next item showing */
+
+    > div:nth-child(odd) {
+      grid-row: 1; /* First row for odd children */
+    }
+    > div:nth-child(even) {
+      grid-row: 2; /* Second row for even children */
+    }
+  }
   .subscriptionbox-products-container {
     display: flex;
     margin: 16px 0px;

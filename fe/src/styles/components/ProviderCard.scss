@@ -1,19 +1,21 @@
 @import "../variables";
 
-.product-card-container {
-  display: inline-block;
-  width: 120px;
+.provider-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
   overflow: hidden;
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: $white;
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    margin-bottom: 10px;
   }
-  .product-card-title {
+  .provider-card-title {
     color: $primary-text;
-    font-size: $font-size-xs;
+    font-size: $font-size-medium;
     line-height: 24px;
     font-weight: 600;
   }

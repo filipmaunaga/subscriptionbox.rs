@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/pages/SubscriptionBoxPage.scss";
 import { testCardUrls } from "../misc/testData";
 import ProductCard from "../components/ProductCard";
+import CategoryLabel from "../components/CategoryLabel";
 
 const SubscriptionBoxPage = () => {
   return (
@@ -16,6 +17,20 @@ const SubscriptionBoxPage = () => {
         <p className="subscriptionbox-content-price">
           24.12 <span className="subscriptionbox-content-price-tag">€</span>
         </p>
+        <p className="list-of-products-title">Categories</p>
+        <div className="subscriptionbox-categories-container">
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+          <CategoryLabel />
+        </div>
         <p className="list-of-products-title">Products included</p>
         <div className="subscriptionbox-products-container ">
           <ProductCard />
