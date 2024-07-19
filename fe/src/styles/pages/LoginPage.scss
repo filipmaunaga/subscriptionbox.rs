@@ -1,0 +1,52 @@
+@import "../variables";
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $padding-xm;
+
+  .signup-title {
+    color: $primary-text;
+    font-size: $font-size-large;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $border-color;
+    border-radius: $border-radius;
+    width: 300px;
+    padding: $padding-xm $padding-large;
+    label {
+      color: $secondary-text;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    input {
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+      height: 48px;
+      font-size: $font-size-small;
+      color: $primary-text;
+      margin-bottom: 16px;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+}
+
+input {
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  height: 48px;
+  font-size: $font-size-small;
+  color: $primary-text;
+}
+input:focus {
+  outline: none;
+}

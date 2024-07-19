@@ -40,9 +40,17 @@ export class AuthController {
   async googleAuthRedirect(@Request() req, @Res() res) {
     const { user } = req;
     const tokens = await this.authService.login(user);
-    res.redirect(
-      `http://localhost:3001?access_token=${tokens.access_token}&refresh_token=${tokens.refresh_token}`,
-    );
+    // Consider using secure cookies or local storage via a frontend route to handle tokens
+    // Here's an example using cookies:
+    res.cookie('accessToken', tokens.access_token, {
+      httpOnly: true,
+      secure: true,
+    });
+    res.cookie('refreshToken', tokens.refresh_token, {
+      httpOnly: true,
+      secure: true,
+    });
+    res.redirect('http://localhost:3000'); // Redirect to the frontend
   }
 
   @UseGuards(JwtAuthGuard)

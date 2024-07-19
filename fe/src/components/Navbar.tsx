@@ -23,8 +23,12 @@ const Navbar = () => {
           <img src="/icons/box.svg" alt="logo" className="logo-image" />
         </Link>
       </div>
-      <div className="hamburger" onClick={toggleNavbar}>
-        <FontAwesomeIcon icon={faBars} />
+      <div className="login-signup-hamburger-container">
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Sign up</Link>
+        <div className="hamburger" onClick={toggleNavbar}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
       </div>
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         <Link to="/" onClick={toggleNavbar}>

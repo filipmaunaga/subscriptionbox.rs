@@ -19,6 +19,7 @@ async function bootstrap() {
 
   app.use(passport.initialize());
   app.use(passport.session());
+  app.enableCors(); // Enables CORS for all origins
   await app.listen(3001);
 }
 bootstrap();

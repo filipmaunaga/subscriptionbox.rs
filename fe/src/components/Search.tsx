@@ -17,7 +17,7 @@ const Search: React.FC<SearchComponentProps> = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <FontAwesomeIcon icon={faMagnifyingGlass} />
       <input
         type="text"

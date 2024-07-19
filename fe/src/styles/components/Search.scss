@@ -1,10 +1,17 @@
 @import "../variables";
 
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 24px;
+  background: $white;
+  padding: $padding-small;
+}
 input[type="text"] {
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
-  margin-right: 10px;
+  font-size: $font-size-small;
+  border: none;
+}
+input:focus {
+  outline: none;
 }
