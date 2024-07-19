@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+  namespace: app
+  labels:
+    app: frontend
+spec:
+  containers:
+  - image: subscriptionbox-fe
+    name: frontend
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 80
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
