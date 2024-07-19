@@ -14,9 +14,9 @@ RUN npm run build
 # Stage 2 - Serve the app with nginx
 FROM nginx:alpine
 
-COPY --from=buld app/build /usr/share/nginx/html
+COPY --from=build app/build /usr/share/nginx/html
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
 
