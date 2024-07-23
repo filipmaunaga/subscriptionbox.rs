@@ -19,7 +19,11 @@ async function bootstrap() {
 
   app.use(passport.initialize());
   app.use(passport.session());
-  app.enableCors(); // Enables CORS for all origins
+  app.enableCors({
+    origin: 'http://localhost:3000', // Your frontend's URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Important: This must be set to true to allow sending of cookies with requests
+  }); // Enables CORS for all origins
   await app.listen(3001);
 }
 bootstrap();

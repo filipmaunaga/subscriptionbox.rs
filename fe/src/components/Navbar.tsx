@@ -18,11 +18,21 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo-container">
-        <Link to="/">
-          <img src="/icons/box.svg" alt="logo" className="logo-image" />
-        </Link>
+      <div className="logo-links-desktop-container">
+        <div className="logo-container">
+          <Link to="/">
+            <img src="/icons/box.svg" alt="logo" className="logo-image" />
+          </Link>
+        </div>
+        <div className="nav-links-desktop-container">
+          <Link to="/">Home</Link>
+          <Link to="/browse-boxes">Browse Boxes</Link>
+          <Link to="/providers">Browse Providers</Link>
+          <Link to="/settings">Settings</Link>
+          <Link to="/cart">Cart</Link>
+        </div>
       </div>
+
       <div className="login-signup-hamburger-container">
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign up</Link>

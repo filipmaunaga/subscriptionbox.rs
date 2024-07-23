@@ -1,4 +1,13 @@
-import { Controller, Request, Get, Post, UseGuards, Res } from '@nestjs/common';
+import {
+  Controller,
+  Request,
+  Get,
+  Post,
+  UseGuards,
+  Req,
+  Res,
+} from '@nestjs/common';
+import { Request as RequestExpress, Response } from 'express';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './utils/local-auth.guard';
 import { JwtAuthGuard } from './utils/jwt-auth.guard';
@@ -9,9 +18,26 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
+  @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(@Request() req) {
-    return this.authService.login(req.user);
+  async login(@Req() req: RequestExpress, @Res() res: Response) {
+    const tokens = await this.authService.login(req.user);
+
+    res.cookie('accessToken', tokens.access_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Ensure cookies are secure in production
+      maxAge: 60 * 60 * 1000, // 1 hour
+    });
+
+    res.cookie('refreshToken', tokens.refresh_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Ensure cookies are secure in production
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
+    // Send the response
+    res.status(200).send({ message: 'Login successful' });
+    // Do not return anything after directly manipulating the response!
   }
 
   @Post('register')

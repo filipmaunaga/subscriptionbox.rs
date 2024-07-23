@@ -17,12 +17,10 @@ const LoginPage = () => {
         {
           email: email,
           password: password,
-        }
+        },
+        { withCredentials: true }
       );
       console.log("Login Success:", response.data);
-      // Storing tokens in localStorage for this example
-      localStorage.setItem("accessToken", response.data.access_token);
-      localStorage.setItem("refreshToken", response.data.refresh_token);
     } catch (error: any) {
       console.error("Login Error:", error.response);
     }

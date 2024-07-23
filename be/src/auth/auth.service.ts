@@ -1,4 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { User, UserDocument } from '../users/schemas/user.schema';
@@ -15,10 +20,27 @@ export class AuthService {
   ) {}
   async validateUser(email: string, password: string): Promise<UserDocument> {
     const user = await this.usersService.findOneByEmail(email);
-    if (user && (await bcrypt.compare(password, user.password))) {
-      return user;
+
+    // First, check if the user exists
+    if (!user) {
+      throw new UnauthorizedException(
+        'Invalid credentials or account does not exist.',
+      );
     }
-    return null;
+
+    // Check if the account is registered via Google and doesn't have a password set
+    if (user.googleId && !user.password) {
+      throw new UnauthorizedException(
+        'This account does not have a password set. Please log in using aaaaaaaa Google.',
+      );
+    }
+
+    // Check if the provided password is correct
+    if (!user.password || !(await bcrypt.compare(password, user.password))) {
+      throw new UnauthorizedException('Invalid credentials.');
+    }
+
+    return user;
   }
   async validateUserById(userId: string): Promise<any> {
     return this.usersService.findOneById(userId);
@@ -30,11 +52,26 @@ export class AuthService {
       refresh_token: this.jwtService.sign(payload, { expiresIn: '7d' }),
     };
   }
-  async register(user: any) {
-    user.password = await bcrypt.hash(user.password, 10);
-    const newUser = await this.usersService.create(user);
+
+  async register(userDto: any) {
+    // Check if email already exists
+    const existingUser = await this.usersService.findOneByEmail(userDto.email);
+    if (existingUser) {
+      throw new ConflictException('Email already exists');
+    }
+
+    // Hash the password
+    if (userDto.password) {
+      userDto.password = await bcrypt.hash(userDto.password, 10);
+    } else {
+      throw new BadRequestException('Password is required');
+    }
+
+    // Create new user
+    const newUser = await this.usersService.create(userDto);
     return newUser;
   }
+
   // Add this method to AuthService
   async refreshToken(refreshToken: string) {
     try {

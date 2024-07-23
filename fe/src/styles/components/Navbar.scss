@@ -9,10 +9,15 @@
   z-index: 10; /* Higher z-index to ensure navbar is above content */
 }
 
+.logo-links-desktop-container {
+  display: flex;
+  align-items: center;
+}
 .logo-container {
   background: $white;
   border-radius: 50%;
   padding: $padding-small;
+  margin-right: 24px;
   .logo-image {
     width: 24px;
     height: 24px;
@@ -43,6 +48,15 @@
   padding: $padding-small $padding-medium;
 }
 
+.nav-links-desktop-container {
+  display: flex;
+  gap: 16px;
+  a {
+    text-decoration: none;
+    color: $primary-text;
+  }
+}
+
 .login-signup-hamburger-container {
   display: flex;
   gap: 16px;
@@ -59,5 +73,8 @@
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+  }
+  .nav-links-desktop-container {
+    display: none; /* Displays the dropdown when open */
   }
 }
