@@ -58,6 +58,25 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Run Docker container
+
+First build the docker image by running
+
+```bash
+docker build -t subscriptionbox-be .
+export $(grep -v '^#' .env | xargs) && docker build --build-arg ENV_VAR_1=$ENV_VAR_1 --build-arg ENV_VAR_2=$ENV_VAR_2 -t subscriptionbox-be .
+```
+
+You need to substitute ENV_VAR_1 and ENV_VAR_2 with the environment variables set in the Dockerfile.
+
+Run a docker container with the image with
+
+```bash
+docker run -p 3001:3001 subscriptionbox-be
+```
+
+The backend will be exposed on localhost:3001.
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
