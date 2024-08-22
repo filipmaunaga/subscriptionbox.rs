@@ -3,10 +3,12 @@ import { AppModule } from './app.module';
 import * as session from 'express-session';
 import * as passport from 'passport';
 import * as dotenv from 'dotenv';
+import * as cookieParser from 'cookie-parser';
 
 dotenv.config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(cookieParser()); // Add this line to use cookie-parser
   app.setGlobalPrefix('api');
   app.use(
     session({
@@ -16,7 +18,6 @@ async function bootstrap() {
       cookie: { maxAge: 3600000 }, // Optional: set cookie expiry (1 hour in this case)
     }),
   );
-
   app.use(passport.initialize());
   app.use(passport.session());
   app.enableCors({

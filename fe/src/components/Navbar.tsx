@@ -10,8 +10,10 @@ import {
   faShop,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => setIsOpen(!isOpen);
@@ -34,8 +36,9 @@ const Navbar = () => {
       </div>
 
       <div className="login-signup-hamburger-container">
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign up</Link>
+        {!user && <Link to="/login">Login</Link>}
+        {!user && <Link to="/signup">Signup</Link>}
+        {user && <button onClick={logout}>Logout</button>}
         <div className="hamburger" onClick={toggleNavbar}>
           <FontAwesomeIcon icon={faBars} />
         </div>

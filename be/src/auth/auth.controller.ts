@@ -18,7 +18,6 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
-  @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Req() req: RequestExpress, @Res() res: Response) {
     const tokens = await this.authService.login(req.user);
@@ -36,7 +35,7 @@ export class AuthController {
     });
 
     // Send the response
-    res.status(200).send({ message: 'Login successful' });
+    res.status(200).send({ message: 'Login successful', user: req.user });
     // Do not return anything after directly manipulating the response!
   }
 
@@ -83,5 +82,26 @@ export class AuthController {
   @Post('refresh-token')
   async refreshToken(@Request() req) {
     return this.authService.refreshToken(req.user);
+  }
+  @UseGuards(JwtAuthGuard) // Ensure this route is protected
+  @Get('verify')
+  verifyUser(@Req() req) {
+    // Assuming the user object is attached to the request via JWT strategy
+    return req.user ? { user: req.user } : { user: null };
+  }
+
+  @Post('logout')
+  logout(@Res() res) {
+    res.cookie('accessToken', '', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 0,
+    });
+    res.cookie('refreshToken', '', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 0,
+    });
+    return res.status(200).send({ message: 'Logged out successfully' });
   }
 }
