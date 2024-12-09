@@ -1,0 +1,18 @@
+@import "../variables";
+
+.providers-page-container {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-medium $padding-xm;
+  .providers-page-search-dropdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .providers-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    gap: 16px; /* Optional spacing between items */
+    padding: $padding-large 0px;
+  }
+}

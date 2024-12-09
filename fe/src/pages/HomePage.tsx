@@ -9,7 +9,6 @@ import Search from "../components/Search";
 const HomePage = () => {
   return (
     <>
-      <SubscriptionBoxCard />
       <ProductCard />
       <CategoryLabel />
       <ProviderCard title="dm" imageUrl={testCardUrls[4]} />

@@ -33,3 +33,36 @@ export const testCardData = [
     url: "https://images.pexels.com/photos/3628100/pexels-photo-3628100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
 ];
+
+export const subscriptionBoxTestData = [
+  {
+    name: "Paket za macke",
+    price: 24,
+    imgUrl:
+      "https://images.pexels.com/photos/29633889/pexels-photo-29633889/free-photo-of-handcrafting-a-festive-christmas-wreath.jpeg",
+  },
+  {
+    name: "Hrana za ribice",
+    price: 32.8,
+    imgUrl:
+      "https://images.pexels.com/photos/29642313/pexels-photo-29642313/free-photo-of-cozy-dessert-with-chocolate-and-tea.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+  {
+    name: "Svi psi treba da su srecni i zadovoljni",
+    price: 155.9,
+    imgUrl:
+      "https://images.pexels.com/photos/29569149/pexels-photo-29569149/free-photo-of-elegant-dessert-in-a-jar-with-pistachios-and-flower.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+  {
+    name: "Pita sa jabukom",
+    price: 15,
+    imgUrl:
+      "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+  {
+    name: "Stambeni kredit",
+    price: 879,
+    imgUrl:
+      "https://images.pexels.com/photos/3628100/pexels-photo-3628100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+];

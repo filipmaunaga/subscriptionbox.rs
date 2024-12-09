@@ -1,0 +1,7 @@
+@import "../variables";
+
+.provider-page-container {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-medium $padding-xm;
+}

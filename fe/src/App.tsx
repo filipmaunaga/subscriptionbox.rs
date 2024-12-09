@@ -9,6 +9,7 @@ import ProvidersPage from "./pages/ProvidersPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import { AuthProvider } from "./context/AuthContext";
+import SingleProviderPage from "./pages/SingleProviderPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/providers" element={<ProvidersPage />} />
+          <Route path="/providers/:id" element={<SingleProviderPage />} />
           <Route
             path="/subscriptionbox/:id"
             element={<SubscriptionBoxPage />}

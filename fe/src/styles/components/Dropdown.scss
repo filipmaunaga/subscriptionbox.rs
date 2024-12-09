@@ -1,0 +1,16 @@
+@import "../variables";
+
+.dropdown-container {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  background: $white;
+  padding: $padding-small;
+  gap: 8px;
+  border-radius: 16px;
+
+  .dropdown-label {
+    display: flex;
+    gap: 16px;
+  }
+}
