@@ -4,4 +4,23 @@
   display: flex;
   flex-direction: column;
   padding: $padding-medium $padding-xm;
+
+  .dropdown-create-box-container {
+    display: flex;
+    gap: 16px;
+    > button {
+      background-color: #8b5dff;
+      width: 40%;
+    }
+  }
+  .custom-box-text-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+    margin-top: 20px;
+    > button {
+      background-color: #8b5dff;
+    }
+  }
 }

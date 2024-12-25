@@ -18,19 +18,7 @@ const SubscriptionBoxPage = () => {
           24.12 <span className="subscriptionbox-content-price-tag">€</span>
         </p>
         <p className="list-of-products-title">Categories</p>
-        <div className="subscriptionbox-categories-container">
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-          <CategoryLabel />
-        </div>
+        <div className="subscriptionbox-categories-container"></div>
         <p className="list-of-products-title">Products included</p>
         <div className="subscriptionbox-products-container ">
           <ProductCard />

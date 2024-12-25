@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 interface IProvider {
   title: string;
   imageUrl: string;
+  category: string;
 }
 
-const ProviderCard = ({ title, imageUrl }: IProvider) => {
+const ProviderCard = ({ title, imageUrl, category }: IProvider) => {
   const navigate = useNavigate();
   return (
     <div
@@ -17,6 +18,7 @@ const ProviderCard = ({ title, imageUrl }: IProvider) => {
     >
       <img src={imageUrl} alt="provider" />
       <p className="provider-card-title">{title}</p>
+      <span className="provider-card-category">{category}</span>
     </div>
   );
 };

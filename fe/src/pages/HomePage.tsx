@@ -10,10 +10,17 @@ const HomePage = () => {
   return (
     <>
       <ProductCard />
-      <CategoryLabel />
-      <ProviderCard title="dm" imageUrl={testCardUrls[4]} />
-      <ProviderCard title="apoteka" imageUrl={testCardUrls[3]} />
-      <ProviderCard title="pet shop" imageUrl={testCardUrls[5]} />
+      <ProviderCard title="dm" imageUrl={testCardUrls[4]} category="random" />
+      <ProviderCard
+        title="apoteka"
+        imageUrl={testCardUrls[3]}
+        category="random"
+      />
+      <ProviderCard
+        title="pet shop"
+        imageUrl={testCardUrls[5]}
+        category="random"
+      />
     </>
   );
 };

@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import { AuthProvider } from "./context/AuthContext";
 import SingleProviderPage from "./pages/SingleProviderPage";
+import RequestBoxPage from "./pages/RequestBoxPage";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/providers" element={<ProvidersPage />} />
           <Route path="/providers/:id" element={<SingleProviderPage />} />
+          <Route
+            path="/providers/:id/create-box"
+            element={<RequestBoxPage />}
+          />
           <Route
             path="/subscriptionbox/:id"
             element={<SubscriptionBoxPage />}
