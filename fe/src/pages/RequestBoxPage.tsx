@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../styles/pages/RequestBoxPage.scss";
 import PrimaryButton from "../components/PrimaryButton";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const RequestBoxPage = () => {
   const [description, setDescription] = useState("");
@@ -18,7 +20,10 @@ const RequestBoxPage = () => {
 
   return (
     <>
-      <div onClick={() => navigate(-1)}>Go back</div>
+      <div className="go-back-container" onClick={() => navigate(-1)}>
+        <FontAwesomeIcon icon={faArrowLeft} />
+        <p className="go-back-text">Go back</p>
+      </div>
       {!isSubmitted ? (
         <div className="create-box-container">
           <h2 className="create-box-title">Request a custom box</h2>
@@ -44,7 +49,11 @@ const RequestBoxPage = () => {
           </form>
         </div>
       ) : (
-        <div>aa</div>
+        <div className="box-requested-container">
+          <FontAwesomeIcon icon={faCircleCheck} />
+          <h2>Box request sent!</h2>
+          <PrimaryButton onClick={() => navigate("/")} buttonText="Home" />
+        </div>
       )}
     </>
   );

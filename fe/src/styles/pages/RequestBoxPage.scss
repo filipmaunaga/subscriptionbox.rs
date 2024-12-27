@@ -1,5 +1,18 @@
 @import "../variables";
 
+.go-back-container {
+  display: flex;
+  gap: 8px;
+  margin: 20px;
+  align-items: center;
+  > svg {
+    height: 20px;
+  }
+  .go-back-text {
+    font-size: $font-size-medium;
+  }
+}
+
 .create-box-container {
   display: flex;
   flex-direction: column;
@@ -45,5 +58,21 @@
     textarea:focus {
       outline: none;
     }
+  }
+}
+
+.box-requested-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50%;
+  > svg {
+    color: $primary-green;
+    height: 240px;
+  }
+  > button {
+    width: 60%;
   }
 }
