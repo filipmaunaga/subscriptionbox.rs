@@ -37,6 +37,8 @@ const SingleProviderPage = () => {
           title={box.name}
           price={box.price}
           imgUrl={box.imgUrl}
+          category={box.name}
+          onClick={() => navigate("/")}
         />
       ))}
       <div className="custom-box-text-button-container">

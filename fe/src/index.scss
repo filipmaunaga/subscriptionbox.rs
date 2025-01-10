@@ -1,5 +1,6 @@
 @import "./styles/variables";
 @import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
 
 body {
   margin: 0;
@@ -7,6 +8,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background-color;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.routes-container {
+  flex: 1; /* Makes this section grow to fill available space */
 }
 
 code {

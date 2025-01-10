@@ -5,6 +5,9 @@
   padding: $padding-medium $padding-xm;
   gap: 20px;
   overflow: hidden;
+  .subscription-box-card-category {
+    display: none;
+  }
 }
 
 .subscription-box-image-container {
@@ -54,6 +57,9 @@
     padding: $padding-medium $padding-xm;
     gap: 20px;
     overflow: hidden;
+    .subscription-box-card-category {
+      display: none;
+    }
   }
 
   .subscription-box-image-container {

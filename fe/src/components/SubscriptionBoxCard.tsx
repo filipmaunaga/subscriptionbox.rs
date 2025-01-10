@@ -7,15 +7,19 @@ interface ISubscriptionBoxCard {
   title: string;
   price: number;
   imgUrl: string;
+  category: string;
+  onClick: () => void;
 }
 
 const SubscriptionBoxCard = ({
   title,
   price,
   imgUrl,
+  category,
+  onClick,
 }: ISubscriptionBoxCard) => {
   return (
-    <div className="subscription-box-card-container">
+    <div className="subscription-box-card-container" onClick={onClick}>
       <div className="subscription-box-image-container">
         <img src={imgUrl} alt="product" />
       </div>
@@ -27,6 +31,7 @@ const SubscriptionBoxCard = ({
         </p>
         <ButtonWithIcon />
       </div>
+      <span className="subscription-box-card-category">{category}</span>
     </div>
   );
 };
