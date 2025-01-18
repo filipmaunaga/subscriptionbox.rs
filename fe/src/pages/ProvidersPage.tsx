@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Search from "../components/Search";
 import ProviderCard from "../components/ProviderCard";
-import { testCardData } from "../misc/testData";
+import { IProvider, mockBackendData } from "../misc/testData";
 import Dropdown, { DropdownComponentProps } from "../components/Dropdown";
 import "../styles/pages/ProvidersPage.scss";
 import CategoryLabel from "../components/CategoryLabel";
 
 const ProvidersPage = () => {
-  const [filteredData, setFilteredData] = useState<
-    {
-      name: string;
-      url: string;
-      category: string;
-    }[]
-  >(testCardData);
+  const [filteredData, setFilteredData] =
+    useState<IProvider[]>(mockBackendData);
   const uniqueCategories: string[] = [
-    ...new Set(testCardData.map((item) => item.category)),
+    ...new Set(mockBackendData.map((provider) => provider.providerCategory)),
   ];
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,13 +27,14 @@ const ProvidersPage = () => {
   ]);
 
   const filterData = (): void => {
-    const filtered = testCardData.filter((product) => {
-      const matchesSearch = product.name
+    const filtered = mockBackendData.filter((provider) => {
+      const matchesSearch = provider.providerName
         .toLowerCase()
         .includes(searchQuery.toLowerCase());
 
       const matchesCategory = selectedCategory
-        ? product.category.toLowerCase() === selectedCategory.toLowerCase() // Match exact category
+        ? provider.providerCategory.toLowerCase() ===
+          selectedCategory.toLowerCase() // Match exact category
         : true; // No category filter applied
 
       return matchesSearch && matchesCategory; // Both conditions must be true
@@ -88,9 +84,11 @@ const ProvidersPage = () => {
       <div className="providers-container">
         {filteredData.map((card) => (
           <ProviderCard
-            title={card.name}
-            imageUrl={card.url}
-            category={card.category}
+            key={card.providerId}
+            id={card.providerId}
+            title={card.providerName}
+            imageUrl={card.providerImgUrl}
+            category={card.providerCategory}
           />
         ))}
       </div>

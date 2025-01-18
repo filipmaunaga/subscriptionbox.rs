@@ -1,0 +1,44 @@
+@import "../variables";
+
+.cart-button-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  .cart-button {
+    position: fixed; /* Sticks the button to a specific position */
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    left: 20px; /* Distance from the left of the viewport */
+    width: 60px; /* Diameter of the button */
+    height: 60px; /* Diameter of the button */
+    border-radius: 50%; /* Makes it round */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text/icon color */
+    border: none; /* Removes default border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    display: flex; /* Centers content inside the button */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    z-index: 1000; /* Ensures it appears above other content */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: -60px; /* Adjust position as needed */
+    right: -60px; /* Adjust position as needed */
+    background-color: #ff3b30; /* Red badge color */
+    color: white; /* Text color */
+    border-radius: 50%; /* Makes it round */
+    width: 20px; /* Badge width */
+    height: 20px; /* Badge height */
+    display: flex; /* Centers content */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    font-size: 12px; /* Font size for the number */
+    font-weight: bold; /* Bold text */
+    z-index: 10001;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  }
+}

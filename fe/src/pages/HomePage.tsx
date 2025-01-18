@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/pages/HomePage.scss";
 import SubscriptionBoxCard from "../components/SubscriptionBoxCard";
 import ProviderCard from "../components/ProviderCard";
-import { testCardUrls } from "../misc/testData";
 import PrimaryButton from "../components/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 
@@ -22,23 +21,7 @@ const HomePage = () => {
       </div>
       <div className="trending-boxes-container">
         <p className="trending-boxes-text">Trending providers</p>
-        <div className="subscriptionbox-products-container">
-          <ProviderCard
-            title="dm"
-            imageUrl={testCardUrls[4]}
-            category="random"
-          />
-          <ProviderCard
-            title="apoteka"
-            imageUrl={testCardUrls[3]}
-            category="random"
-          />
-          <ProviderCard
-            title="pet shop"
-            imageUrl={testCardUrls[5]}
-            category="random"
-          />
-        </div>
+        <div className="subscriptionbox-products-container"></div>
         <PrimaryButton
           buttonText="See All Providers"
           onClick={() => navigate("/providers")}

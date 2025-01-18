@@ -1,0 +1,16 @@
+@import "../variables";
+
+.cart-page-container {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-medium $padding-xm;
+  gap: 60px;
+  .total-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    .total-text {
+      font-size: $font-size-medium;
+    }
+  }
+}

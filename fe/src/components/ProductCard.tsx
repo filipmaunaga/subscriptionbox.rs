@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/components/ProductCard.scss";
-import { testCardUrls } from "../misc/testData";
 
 interface IProductCard {
   name: string;

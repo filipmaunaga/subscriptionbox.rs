@@ -14,17 +14,21 @@ import RequestBoxPage from "./pages/RequestBoxPage";
 import FAQ from "./pages/FAQ";
 import Footer from "./components/Footer";
 import BrowseBoxesPage from "./pages/BrowseBoxesPage";
+import CartButton from "./components/CartButton";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Navbar />
+        <CartButton numberOfItems={1} />
         <div className="routes-container">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/providers" element={<ProvidersPage />} />

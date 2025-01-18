@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/pages/SingleProviderPage.scss";
-import { subscriptionBoxTestData } from "../misc/testData";
+import { mockBackendData } from "../misc/testData";
 import SubscriptionBoxCard from "../components/SubscriptionBoxCard";
 import Dropdown from "../components/Dropdown";
 import PrimaryButton from "../components/PrimaryButton";
@@ -14,8 +14,12 @@ const SingleProviderPage = () => {
     { value: "alphabetical", name: "Alphabetical" },
     { value: "recentlyAdded", name: "Recently added" },
   ]);
-  const params = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
+
+  const providersData = mockBackendData.find(
+    (provider) => provider.providerId === id
+  );
 
   return (
     <div className="provider-page-container">
@@ -28,17 +32,17 @@ const SingleProviderPage = () => {
         />
         <PrimaryButton
           buttonText="create your own box"
-          onClick={() => navigate(`/providers/${params.id}/create-box`)}
+          onClick={() => navigate(`/providers/${id}/create-box`)}
         />
       </div>
-      {subscriptionBoxTestData.map((box) => (
+      {providersData?.providerSubscriptionboxes.map((box) => (
         <SubscriptionBoxCard
-          key={box.name}
-          title={box.name}
-          price={box.price}
-          imgUrl={box.imgUrl}
-          category={box.name}
-          onClick={() => navigate("/")}
+          key={box.boxId}
+          title={box.boxName}
+          price={box.boxPrice}
+          imgUrl={box.boxImgUrl}
+          category={box.boxCategory}
+          onClick={() => navigate(`/subscriptionbox/${box.boxId}`)}
         />
       ))}
       <div className="custom-box-text-button-container">
@@ -48,7 +52,7 @@ const SingleProviderPage = () => {
         </h3>
         <PrimaryButton
           buttonText="create your own box"
-          onClick={() => navigate(`/providers/${params.id}/create-box`)}
+          onClick={() => navigate(`/providers/${id}/create-box`)}
         />
       </div>
     </div>

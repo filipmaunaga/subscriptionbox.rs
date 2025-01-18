@@ -1,20 +1,20 @@
 import React from "react";
 import "../styles/components/ProviderCard.scss";
-import { testCardUrls } from "../misc/testData";
 import { useNavigate } from "react-router-dom";
 
 interface IProvider {
+  id: string;
   title: string;
   imageUrl: string;
   category: string;
 }
 
-const ProviderCard = ({ title, imageUrl, category }: IProvider) => {
+const ProviderCard = ({ id, title, imageUrl, category }: IProvider) => {
   const navigate = useNavigate();
   return (
     <div
       className="provider-card-container"
-      onClick={() => navigate(`/providers/${title}`)}
+      onClick={() => navigate(`/providers/${id}`)}
     >
       <img src={imageUrl} alt="provider" />
       <p className="provider-card-title">{title}</p>

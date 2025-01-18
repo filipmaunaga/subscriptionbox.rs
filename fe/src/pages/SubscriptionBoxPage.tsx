@@ -1,30 +1,47 @@
 import React, { useEffect } from "react";
 import "../styles/pages/SubscriptionBoxPage.scss";
-import { testCardUrls } from "../misc/testData";
 import ProductCard from "../components/ProductCard";
 import CategoryLabel from "../components/CategoryLabel";
-import { useParams } from "react-router-dom";
-import { mockBackendData } from "../misc/testData";
+import { useNavigate, useParams } from "react-router-dom";
+import { ISubscriptionBox, mockBackendData } from "../misc/testData";
+import ButtonWithIcon from "../components/ButtonWithIcon";
+import { useCart } from "../store/cart";
 
 const SubscriptionBoxPage = () => {
   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const subscriptionBoxesFromCart = useCart((state) => state.subscriptionBoxes);
+  const addBox = useCart((state) => state.addBox);
   const allSubscriptionBoxes = mockBackendData.flatMap(
     (provider) => provider.providerSubscriptionboxes
   );
 
+  const providerData = mockBackendData.find((provider) =>
+    provider.providerSubscriptionboxes.some((box) => box.boxId === id)
+  );
   const boxData = allSubscriptionBoxes.find((box) => box.boxId === id);
-  useEffect(() => {
-    console.log("ID", id);
-  }, []);
+  const handleAddToCart = (boxData: ISubscriptionBox) => {
+    if (subscriptionBoxesFromCart.some((box) => box.boxId === boxData?.boxId))
+      return;
+    else addBox(boxData);
+  };
 
   return (
     <>
       {boxData ? (
         <>
           <div className="subscriptionbox-page-image-container">
-            <img src={boxData.boxImgUrl} />
+            <img src={boxData.boxImgUrl} alt="subscription box" />
           </div>
+          <p className="subscriptionbox-page-provider-info">
+            Provider:{" "}
+            <span
+              className="subscriptionbox-page-provider-link"
+              onClick={() => navigate(`/providers/${providerData?.providerId}`)}
+            >
+              {providerData?.providerName}
+            </span>
+          </p>
           <div className="subscriptionbox-content-container">
             <h2 className="subscriptionbox-content-title">{boxData.boxName}</h2>
             <p className="subscriptionbox-content-price">
@@ -56,6 +73,13 @@ const SubscriptionBoxPage = () => {
               also seen in other kinds of food, such as soups, sandwiches and
               wraps; it can also be grilled.
             </p>
+            <div className="add-to-cart-button-container">
+              <ButtonWithIcon
+                buttonText="Add to cart"
+                leftIconSrc="/icons/shopping-cart.svg"
+                onClick={() => handleAddToCart(boxData)}
+              />
+            </div>
           </div>
         </>
       ) : (

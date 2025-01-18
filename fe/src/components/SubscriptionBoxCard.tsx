@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/components/SubscriptionBoxCard.scss";
-import { testCardUrls } from "../misc/testData";
 import ButtonWithIcon from "./ButtonWithIcon";
+import PrimaryButton from "./PrimaryButton";
 
 interface ISubscriptionBoxCard {
   title: string;
@@ -29,7 +29,7 @@ const SubscriptionBoxCard = ({
           {price}{" "}
           <span className="subscription-box-card-euro-price">€ / piece</span>
         </p>
-        <ButtonWithIcon />
+        <PrimaryButton buttonText="View box" />
       </div>
       <span className="subscription-box-card-category">{category}</span>
     </div>
