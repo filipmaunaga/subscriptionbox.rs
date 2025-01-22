@@ -1,5 +1,18 @@
 @import "../variables";
 
+.back-to-boxes-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 10px 0px;
+  > svg {
+    height: 20px;
+  }
+  .go-back-text {
+    font-size: $font-size-medium;
+  }
+}
+
 .subscriptionbox-page-image-container {
   display: flex;
   align-items: center;

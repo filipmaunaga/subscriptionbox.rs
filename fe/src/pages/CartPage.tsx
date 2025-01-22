@@ -4,16 +4,35 @@ import SubscriptionBoxCard from "../components/SubscriptionBoxCard";
 import "../styles/pages/CartPage.scss";
 import PrimaryButton from "../components/PrimaryButton";
 import ButtonWithIcon from "../components/ButtonWithIcon";
+import RemoveModal from "../components/RemoveModal";
+import { useGetTotalAmount } from "../hooks/useGetTotalAmount";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
-  const [total, setTotal] = useState(0);
   const subscriptionBoxes = useCart((state) => state.subscriptionBoxes);
-  useEffect(() => {
-    const totalFromBoxes = subscriptionBoxes
-      .map((box) => box.boxPrice)
-      .reduce((acc, price) => acc + price, 0);
-    setTotal(Math.round(totalFromBoxes * 100) / 100);
-  }, [subscriptionBoxes]);
+  const navigate = useNavigate();
+  const { total } = useGetTotalAmount();
+  const removeBox = useCart((state) => state.removeBox);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedBoxId, setSelectedBoxId] = useState<string | null>(null);
+
+  const handleRemoveBox = (boxId: string) => {
+    setSelectedBoxId(boxId);
+    setModalOpen(true);
+  };
+
+  const confirmRemoveBox = () => {
+    if (selectedBoxId) {
+      removeBox(selectedBoxId);
+      setModalOpen(false);
+      setSelectedBoxId(null);
+    }
+  };
+
+  const cancelRemove = () => {
+    setModalOpen(false);
+    setSelectedBoxId(null);
+  };
 
   return (
     <div className="cart-page-container">
@@ -25,7 +44,8 @@ const CartPage = () => {
           price={box.boxPrice}
           imgUrl={box.boxImgUrl}
           category={box.boxCategory}
-          onClick={() => console.log("a")}
+          onClick={() => handleRemoveBox(box.boxId)}
+          isRemovable={true}
         />
       ))}
       <div className="total-container">
@@ -33,9 +53,16 @@ const CartPage = () => {
         <ButtonWithIcon
           buttonText="Go to checkout"
           rightIconSrc="/icons/right-arrow.svg"
-          onClick={() => console.log("checkout")}
+          onClick={() => navigate("/checkout")}
         />
       </div>
+      <RemoveModal
+        isOpen={isModalOpen}
+        onClose={cancelRemove}
+        onConfirm={confirmRemoveBox}
+        title="Remove Subscription Box"
+        message="Are you sure you want to remove this subscription box?"
+      />
     </div>
   );
 };

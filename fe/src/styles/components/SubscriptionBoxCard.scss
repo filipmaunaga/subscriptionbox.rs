@@ -45,6 +45,12 @@
       font-weight: 400;
     }
   }
+
+  .remove-from-cart {
+    > button {
+      background: #ff3b30;
+    }
+  }
 }
 
 @media (min-width: 768px) {

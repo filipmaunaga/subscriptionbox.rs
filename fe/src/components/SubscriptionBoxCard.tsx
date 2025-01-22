@@ -8,7 +8,8 @@ interface ISubscriptionBoxCard {
   price: number;
   imgUrl: string;
   category: string;
-  onClick: () => void;
+  onClick?: () => void;
+  isRemovable?: boolean;
 }
 
 const SubscriptionBoxCard = ({
@@ -17,6 +18,7 @@ const SubscriptionBoxCard = ({
   imgUrl,
   category,
   onClick,
+  isRemovable,
 }: ISubscriptionBoxCard) => {
   return (
     <div className="subscription-box-card-container" onClick={onClick}>
@@ -29,7 +31,13 @@ const SubscriptionBoxCard = ({
           {price}{" "}
           <span className="subscription-box-card-euro-price">€ / piece</span>
         </p>
-        <PrimaryButton buttonText="View box" />
+        {isRemovable ? (
+          <div className="remove-from-cart">
+            <PrimaryButton buttonText="Remove from cart" />
+          </div>
+        ) : (
+          <PrimaryButton buttonText="View box" />
+        )}
       </div>
       <span className="subscription-box-card-category">{category}</span>
     </div>

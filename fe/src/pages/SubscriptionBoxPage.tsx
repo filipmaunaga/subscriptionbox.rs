@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ISubscriptionBox, mockBackendData } from "../misc/testData";
 import ButtonWithIcon from "../components/ButtonWithIcon";
 import { useCart } from "../store/cart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const SubscriptionBoxPage = () => {
   const { id } = useParams();
@@ -30,6 +32,13 @@ const SubscriptionBoxPage = () => {
     <>
       {boxData ? (
         <>
+          <div
+            className="back-to-boxes-container"
+            onClick={() => navigate("/browse-boxes")}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+            <p className="go-back-text">Back to all boxes</p>
+          </div>
           <div className="subscriptionbox-page-image-container">
             <img src={boxData.boxImgUrl} alt="subscription box" />
           </div>

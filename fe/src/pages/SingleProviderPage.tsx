@@ -5,6 +5,8 @@ import SubscriptionBoxCard from "../components/SubscriptionBoxCard";
 import Dropdown from "../components/Dropdown";
 import PrimaryButton from "../components/PrimaryButton";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const SingleProviderPage = () => {
   const [dropdownOptions, setDropdownOptions] = useState<
@@ -35,16 +37,25 @@ const SingleProviderPage = () => {
           onClick={() => navigate(`/providers/${id}/create-box`)}
         />
       </div>
-      {providersData?.providerSubscriptionboxes.map((box) => (
-        <SubscriptionBoxCard
-          key={box.boxId}
-          title={box.boxName}
-          price={box.boxPrice}
-          imgUrl={box.boxImgUrl}
-          category={box.boxCategory}
-          onClick={() => navigate(`/subscriptionbox/${box.boxId}`)}
-        />
-      ))}
+      <div
+        className="back-to-providers-container"
+        onClick={() => navigate("/providers")}
+      >
+        <FontAwesomeIcon icon={faArrowLeft} />
+        <p className="go-back-text">Back to all providers</p>
+      </div>
+      <div className="boxes-container">
+        {providersData?.providerSubscriptionboxes.map((box) => (
+          <SubscriptionBoxCard
+            key={box.boxId}
+            title={box.boxName}
+            price={box.boxPrice}
+            imgUrl={box.boxImgUrl}
+            category={box.boxCategory}
+            onClick={() => navigate(`/subscriptionbox/${box.boxId}`)}
+          />
+        ))}
+      </div>
       <div className="custom-box-text-button-container">
         <h3 className="custom-box-text">
           Didn't find anything that suits your needs? No problem, just click the
