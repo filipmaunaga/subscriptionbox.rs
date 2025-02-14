@@ -1,0 +1,61 @@
+@import "../variables";
+
+.settings-form-container {
+  .settings-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: $padding-medium;
+    margin-bottom: 30px;
+    .settings-legend {
+      margin-bottom: 30px;
+      font-size: $font-size-medium;
+      font-weight: 500;
+      color: $secondary-text;
+    }
+  }
+  .cancel-button-container {
+    margin-top: 20px;
+    > button {
+      background: #ff3b30;
+    }
+  }
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  padding: $padding-xm $padding-medium;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto; // Allows scrolling if form is long
+  .settings-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; // Keeps options centered
+    width: 100%;
+    gap: 16px;
+    .settings-option {
+      width: 100%;
+      padding: 0px 30px;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+      text-decoration: none;
+      color: $primary-text;
+      .settings-option-title {
+        font-size: $font-size-medium;
+      }
+    }
+  }
+  .settings-content {
+    width: 100%;
+    margin-top: 20px; // Adds space so forms don’t push links up
+    flex-grow: 1; // Fills remaining space
+  }
+}

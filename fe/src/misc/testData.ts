@@ -30,7 +30,15 @@ export const subscriptionBoxTestData = [
       "https://images.pexels.com/photos/3628100/pexels-photo-3628100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
 ];
-
+export interface ISettings {
+  userId: string;
+  userName: string;
+  userEmail: string;
+  userAddress: string;
+  userHomeType: "House" | "Apartment";
+  userApartmentFlat?: number;
+  userApartmentNumber?: number;
+}
 export interface IProduct {
   produtctId: string;
   productName: string;

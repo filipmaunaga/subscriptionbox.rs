@@ -16,6 +16,9 @@ import Footer from "./components/Footer";
 import BrowseBoxesPage from "./pages/BrowseBoxesPage";
 import CartButton from "./components/CartButton";
 import CartPage from "./pages/CartPage";
+import UserSettingsPage from "./pages/UserSettingsPage";
+import GeneralSettingsPage from "./modules/settings/pages/GeneralSettings";
+import PaymentSettingsPage from "./modules/settings/pages/PaymentSettings";
 
 function App() {
   return (
@@ -31,6 +34,10 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/settings" element={<UserSettingsPage />}>
+              <Route path="general" element={<GeneralSettingsPage />} />
+              <Route path="payment" element={<PaymentSettingsPage />} />
+            </Route>
             <Route path="/providers" element={<ProvidersPage />} />
             <Route path="/providers/:id" element={<SingleProviderPage />} />
             <Route

@@ -4,7 +4,6 @@ import PrimaryButton from "../components/PrimaryButton";
 import { useGetTotalAmount } from "../hooks/useGetTotalAmount";
 
 interface IPaymentCard {
-  cardName: string;
   cardNumber: number;
   cardExpiration: string;
   cardCvc: number;
@@ -13,7 +12,6 @@ interface IPaymentCard {
 const CheckoutPage = () => {
   const { total } = useGetTotalAmount();
   const [cardDetails, setCardDetails] = useState<IPaymentCard>({
-    cardName: "",
     cardNumber: 0,
     cardExpiration: "",
     cardCvc: 0,
@@ -31,18 +29,6 @@ const CheckoutPage = () => {
     <div className="checkout-page-container">
       <h2 className="checkout-page-title">Credit card details</h2>
       <form onSubmit={handleSubmit} className="checkout-page-form">
-        <div className="input-container">
-          <label htmlFor="fname">Name on the card</label>
-          <input
-            type="text"
-            id="fname"
-            name="fname"
-            required
-            onChange={(e) =>
-              setCardDetails({ ...cardDetails, cardName: e.target.value })
-            }
-          />
-        </div>
         <div className="input-container">
           <label htmlFor="lname">Card number</label>
           <input
