@@ -19,6 +19,7 @@ import CartPage from "./pages/CartPage";
 import UserSettingsPage from "./pages/UserSettingsPage";
 import GeneralSettingsPage from "./modules/settings/pages/GeneralSettings";
 import PaymentSettingsPage from "./modules/settings/pages/PaymentSettings";
+import DeliverySettingsPage from "./modules/settings/pages/DeliverySettings";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/settings" element={<UserSettingsPage />}>
               <Route path="general" element={<GeneralSettingsPage />} />
               <Route path="payment" element={<PaymentSettingsPage />} />
+              <Route path="delivery" element={<DeliverySettingsPage />} />
             </Route>
             <Route path="/providers" element={<ProvidersPage />} />
             <Route path="/providers/:id" element={<SingleProviderPage />} />

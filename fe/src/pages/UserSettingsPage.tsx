@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/pages/UserSettingsPage.scss";
-import DataInput from "../components/DataInput";
-import PrimaryButton from "../components/PrimaryButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
@@ -16,6 +14,10 @@ const SettingsPage = () => {
         </Link>
         <Link to="payment" className="settings-option">
           <h6 className="settings-option-title">Payment</h6>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </Link>
+        <Link to="delivery" className="settings-option">
+          <h6 className="settings-option-title">Delivery</h6>
           <FontAwesomeIcon icon={faChevronRight} />
         </Link>
       </div>
